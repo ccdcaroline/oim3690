@@ -5,6 +5,5 @@ This is my course repository for OIM3690.
 ## About me 
 - Name: Caroline DiGiovanni 
 
-## Links 
 
 
