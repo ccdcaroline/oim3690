@@ -1,1 +1,206 @@
-Hello world! 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caroline DiGiovanni | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #006747; /* Babson Green */
+            --secondary-color: #2d2d2d;
+            --accent-color: #f4f4f4;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        header {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80') center/cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.2rem; max-width: 600px; }
+
+        /* General Sections */
+        section { padding: 4rem 10%; }
+        h2 { border-bottom: 3px solid var(--primary-color); display: inline-block; margin-bottom: 2rem; }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        /* Special Styling for Internship Reflection */
+        .reflection-box {
+            background: #e9f0ee;
+            padding: 2rem;
+            border-left: 5px solid var(--primary-color);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CD</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#career">Field Hockey</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#internship">Internship</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Caroline DiGiovanni</h1>
+        <p>Babson College Senior | Business Analytics | NCAA Field Hockey Athlete</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a highly motivated student at <strong>Babson College</strong>, concentrating in Business Analytics. With a background as a collegiate athlete, I combine competitive drive with technical skills to solve complex business problems through data-driven insights.</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Interests</h3>
+                <ul>
+                    <li>Data Visualization & Storytelling</li>
+                    <li>Fitness (Barry's & Hot Yoga)</li>
+                    <li>Fashion Technology</li>
+                    <li>Global Travel & Culture</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Marketing Analytics</li>
+                    <li>Competitive Research</li>
+                    <li>Web Technology (HTML/CSS)</li>
+                    <li>Strategic Communication</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="career" style="background-color: #fff;">
+        <h2>Field Hockey Career</h2>
+        <p>Competing as a Babson Field Hockey athlete has been the cornerstone of my college experience. It taught me the discipline required to manage a rigorous academic schedule while competing at a national level.</p>
+        <div class="reflection-box">
+            "The transition from the field to the boardroom is fueled by the same grit, teamwork, and strategic thinking developed through years of elite competition."
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Selected Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Sports Marketing Analysis</h3>
+                <p>An in-depth study on Major League Soccer's growth strategies and fan engagement metrics.</p>
+            </div>
+            <div class="card">
+                <h3>Web Technology Portfolio</h3>
+                <p>This website! Developed to showcase my ability to blend technical coding with personal branding.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="internship">
+        <h2>Internship Reflection</h2>
+        <h3>Marketing Intern | Vantage Partners</h3>
+        <p>During my summer at Vantage Partners, I dived deep into contact research and competitive analysis. This experience solidified my interest in consulting and analytics, as I learned how to turn raw market data into actionable insights for client strategy.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Connect With Me</h2>
+        <p>I am currently exploring opportunities in Business Analytics and Interest Rate Sales.</p>
+        <a href="https://www.linkedin.com/in/carolinedigiovanni" class="btn" target="_blank">View My LinkedIn</a>
+        <a href="mailto:your-email@babson.edu" class="btn" style="background: #333;">Email Me</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Caroline DiGiovanni | Built for Web Technology Class</p>
+    </footer>
+
+</body>
+</html>
