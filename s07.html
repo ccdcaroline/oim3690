@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Tags & Elements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .tag-example {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎓 Basic HTML Tags & Elements Guide</h1>
+    
+    <!-- STRUCTURAL TAGS -->
+    <h2>1. Structural Tags</h2>
+    
+    <div class="tag-example">
+        <h3>&lt;html&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Root element that wraps all content</p>
+        <p><strong>Example:</strong> <code>&lt;html lang="en"&gt;...&lt;/html&gt;</code></p>
+        <p>This is the container for your entire HTML document.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;head&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Contains metadata, title, links, and scripts</p>
+        <p><strong>Example:</strong> <code>&lt;head&gt;&lt;title&gt;My Page&lt;/title&gt;&lt;/head&gt;</code></p>
+        <p>Information here is NOT displayed on the page (except title in browser tab).</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;body&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Contains all visible page content</p>
+        <p><strong>Example:</strong> <code>&lt;body&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/body&gt;</code></p>
+        <p>Everything users see goes here!</p>
+    </div>
+
+    <!-- TEXT CONTENT TAGS -->
+    <h2>2. Text & Heading Tags</h2>
+
+    <div class="tag-example">
+        <h3>&lt;h1&gt; through &lt;h6&gt; Tags</h3>
+        <p><strong>Purpose:</strong> Define headings (h1 = largest, h6 = smallest)</p>
+        <h1>This is H1 - Main title</h1>
+        <h2>This is H2 - Subtitle</h2>
+        <h3>This is H3 - Section heading</h3>
+        <p><strong>Usage:</strong> Use h1 once per page for main title, then h2-h6 for sections.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;p&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Defines a paragraph</p>
+        <p><strong>Example:</strong> This is a paragraph. The browser automatically adds space before and after.</p>
+        <p>Each &lt;p&gt; tag creates a block of text with automatic margins.</p>
+    </div>
+
+    <!-- FORMATTING TAGS -->
+    <h2>3. Text Formatting Tags</h2>
+
+    <div class="tag-example">
+        <h3>&lt;strong&gt; & &lt;b&gt; Tags</h3>
+        <p><strong>Purpose:</strong> Make text bold</p>
+        <p><strong>&lt;strong&gt;</strong> - Semantic (indicates importance), <strong>displays bold</strong></p>
+        <p><b>&lt;b&gt;</b> - Just for styling, <b>displays bold</b></p>
+        <p><strong>Recommendation:</strong> Use &lt;strong&gt; for semantic meaning.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;em&gt; & &lt;i&gt; Tags</h3>
+        <p><strong>Purpose:</strong> Make text italic</p>
+        <p><em>&lt;em&gt;</em> - Semantic (emphasized), <em>displays italic</em></p>
+        <p><i>&lt;i&gt;</i> - Just for styling, <i>displays italic</i></p>
+        <p><strong>Recommendation:</strong> Use &lt;em&gt; for semantic meaning.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;mark&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Highlight text</p>
+        <p>This is <mark>highlighted text</mark> (usually yellow background).</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;small&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Make text smaller (for fine print, disclaimers)</p>
+        <p><small>This is smaller text, often used for copyright or fine print.</small></p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;del&gt; & &lt;ins&gt; Tags</h3>
+        <p><strong>Purpose:</strong> Show deleted and inserted text</p>
+        <p>The price was <del>$100</del> <ins>$50</ins>.</p>
+        <p>&lt;del&gt; shows strike-through, &lt;ins&gt; shows underline.</p>
+    </div>
+
+    <!-- LIST TAGS -->
+    <h2>4. List Tags</h2>
+
+    <div class="tag-example">
+        <h3>&lt;ul&gt; & &lt;li&gt; Tags (Unordered List)</h3>
+        <p><strong>Purpose:</strong> Create a bulleted list</p>
+        <ul>
+            <li>First item (bullet point)</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ul>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;ol&gt; & &lt;li&gt; Tags (Ordered List)</h3>
+        <p><strong>Purpose:</strong> Create a numbered list</p>
+        <ol>
+            <li>First step</li>
+            <li>Second step</li>
+            <li>Third step</li>
+        </ol>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt; Tags (Description List)</h3>
+        <p><strong>Purpose:</strong> Pair terms with definitions</p>
+        <dl>
+            <dt>HTML</dt>
+            <dd>HyperText Markup Language - used to structure web content</dd>
+            <dt>CSS</dt>
+            <dd>Cascading Style Sheets - used to style web content</dd>
+        </dl>
+    </div>
+
+    <!-- LINK & MEDIA TAGS -->
+    <h2>5. Links & Media Tags</h2>
+
+    <div class="tag-example">
+        <h3>&lt;a&gt; Tag (Anchor/Link)</h3>
+        <p><strong>Purpose:</strong> Create hyperlinks</p>
+        <p><code>&lt;a href="https://example.com"&gt;Click me&lt;/a&gt;</code></p>
+        <p><a href="https://example.com" target="_blank">Click me (opens in new tab)</a></p>
+        <p><strong>Attributes:</strong> href (URL), target="_blank" (opens in new tab)</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;img&gt; Tag (Image)</h3>
+        <p><strong>Purpose:</strong> Display images</p>
+        <p><code>&lt;img src="image.jpg" alt="Description"&gt;</code></p>
+        <p><strong>Attributes:</strong> src (image path), alt (description if image fails)</p>
+        <p><strong>Note:</strong> &lt;img&gt; is a self-closing tag (no closing tag).</p>
+    </div>
+
+    <!-- CONTAINER TAGS -->
+    <h2>6. Container/Division Tags</h2>
+
+    <div class="tag-example">
+        <h3>&lt;div&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Generic container for grouping - used to section content</p>
+        <p><strong>Example:</strong> <code>&lt;div class="container"&gt;...&lt;/div&gt;</code></p>
+        <p>The most commonly used container. Apply styling/layout with CSS.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;section&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Semantic container for a thematic grouping</p>
+        <p><strong>Example:</strong> <code>&lt;section&gt;&lt;h2&gt;About Us&lt;/h2&gt;...&lt;/section&gt;</code></p>
+        <p>Better for SEO and accessibility than &lt;div&gt;.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;header&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Introductory content or navigation bar</p>
+        <p>Usually contains logo, navigation links, title.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;footer&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Footer content</p>
+        <p>Usually contains copyright, contact info, links.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;nav&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Navigation links</p>
+        <p><code>&lt;nav&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/nav&gt;</code></p>
+    </div>
+
+    <!-- FORM TAGS -->
+    <h2>7. Form Tags</h2>
+
+    <div class="tag-example">
+        <h3>&lt;form&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Create a form to collect user input</p>
+        <p><code>&lt;form action="submit.php"&gt;...&lt;/form&gt;</code></p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;input&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Create input fields</p>
+        <p>Text: <code>&lt;input type="text"&gt;</code></p>
+        <p>Password: <code>&lt;input type="password"&gt;</code></p>
+        <p>Checkbox: <code>&lt;input type="checkbox"&gt;</code></p>
+        <p>Radio: <code>&lt;input type="radio"&gt;</code></p>
+        <p>Submit: <code>&lt;input type="submit" value="Send"&gt;</code></p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;label&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Label for form inputs</p>
+        <p><code>&lt;label for="name"&gt;Name&lt;/label&gt;&lt;input id="name"&gt;</code></p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;textarea&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Multi-line text input</p>
+        <p><code>&lt;textarea rows="4" cols="40"&gt;&lt;/textarea&gt;</code></p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;button&gt; Tag</h3>
+        <p><strong>Purpose:</strong> Clickable button</p>
+        <p><code>&lt;button&gt;Click Me&lt;/button&gt;</code></p>
+    </div>
+
+    <!-- OTHER USEFUL TAGS -->
+    <h2>8. Other Useful Tags</h2>
+
+    <div class="tag-example">
+        <h3>&lt;hr&gt; Tag (Horizontal Rule)</h3>
+        <p><strong>Purpose:</strong> Draw a line to separate content</p>
+        <hr>
+        <p><strong>Note:</strong> Self-closing tag.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;br&gt; Tag (Line Break)</h3>
+        <p><strong>Purpose:</strong> Create a line break</p>
+        <p>Line 1<br>Line 2<br>Line 3</p>
+        <p><strong>Note:</strong> Self-closing tag. Use sparingly; CSS is better for spacing.</p>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;table&gt;, &lt;tr&gt;, &lt;td&gt; Tags</h3>
+        <p><strong>Purpose:</strong> Create tables</p>
+        <table border="1" style="margin: 10px 0;">
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+            </tr>
+            <tr>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tag-example">
+        <h3>&lt;code&gt; & &lt;pre&gt; Tags</h3>
+        <p><strong>Purpose:</strong> Display code snippets</p>
+        <p>Inline code: <code>var x = 5;</code></p>
+        <pre>Block of code:
+var name = "John";
+var age = 25;</pre>
+    </div>
+
+    <!-- SUMMARY -->
+    <h2>✨ Quick Summary</h2>
+    <div class="tag-example">
+        <h3>Document Structure</h3>
+        <ul>
+            <li>&lt;!DOCTYPE html&gt; - Declares this is an HTML5 document</li>
+            <li>&lt;html&gt; - Root element</li>
+            <li>&lt;head&gt; - Metadata & info</li>
+            <li>&lt;body&gt; - Visible content</li>
+        </ul>
+    </div>
+
+    <div class="tag-example">
+        <h3>Best Practices</h3>
+        <ul>
+            <li>Use semantic tags (&lt;header&gt;, &lt;section&gt;, &lt;footer&gt;) for better organization</li>
+            <li>Always include &lt;alt&gt; text for images</li>
+            <li>Use &lt;strong&gt; instead of &lt;b&gt;, &lt;em&gt; instead of &lt;i&gt;</li>
+            <li>Close all tags properly</li>
+            <li>Use lowercase for tag names</li>
+            <li>Indent code for readability</li>
+        </ul>
+    </div>
+
+</body>
+</html>

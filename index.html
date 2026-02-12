@@ -1,261 +1,628 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caroline DiGiovanni | Portfolio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --primary-color: #006747; /* Babson Green */
-        --secondary-color: #2d2d2d;
-        --accent-color: #f4f4f4;
-        --text-dark: #1a1a1a;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caroline DiGiovanni | Portfolio</title>
 
-      body {
-        font-family: "Inter", sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        color: var(--text-dark);
-        scroll-behavior: smooth;
-      }
+  <style>
+    /* =========================
+       THEME (edit these first)
+    ========================== */
+    :root{
+      --bg: #ffffff;                 /* white */
+      --text: #24160f;               /* deep brown */
+      --muted: #6d5a50;              /* softer brown */
+      --accent: #d6457a;             /* raspberry pink */
+      --accent-2: #3b2117;           /* dark brown */
+      --card: #fff7fa;               /* very light pink tint */
+      --border: rgba(59, 33, 23, 0.14);
+      --shadow: 0 12px 30px rgba(36, 22, 15, 0.10);
+      --radius: 18px;
+      --max: 1060px;
+    }
 
-      /* Navigation */
-      nav {
-        background: white;
-        padding: 1rem 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-      }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-      .logo {
-        font-weight: 700;
-        font-size: 1.5rem;
-        color: var(--primary-color);
-      }
+    /* =========================
+       LAYOUT HELPERS
+    ========================== */
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
 
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-      }
+    .section{
+      padding: 70px 0;
+    }
 
-      nav a {
-        text-decoration: none;
-        color: var(--secondary-color);
-        font-weight: 500;
-        transition: color 0.3s;
-      }
+    .grid-2{
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+    }
+    @media (max-width: 900px){
+      .grid-2{ grid-template-columns: 1fr; }
+    }
 
-      nav a:hover {
-        color: var(--primary-color);
-      }
+    /* =========================
+       NAV
+    ========================== */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 14px;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      color: var(--accent-2);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .brand-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(214,69,122,0.15);
+    }
 
-      /* Hero Section */
-      header {
-        height: 60vh;
-        background:
-          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-          url("https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80")
-            center/cover;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-      }
+    .nav a{
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 14px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: 180ms ease;
+    }
+    .nav a:hover{
+      color: var(--accent-2);
+      background: rgba(214,69,122,0.08);
+    }
+    .nav a.active{
+      color: var(--accent-2);
+      background: rgba(214,69,122,0.14);
+      outline: 1px solid rgba(214,69,122,0.22);
+    }
 
-      header h1 {
-        font-size: 3rem;
-        margin-bottom: 0.5rem;
-      }
-      header p {
-        font-size: 1.2rem;
-        max-width: 600px;
-      }
+    .nav-links{
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-      /* General Sections */
-      section {
-        padding: 4rem 10%;
-      }
-      h2 {
-        border-bottom: 3px solid var(--primary-color);
-        display: inline-block;
-        margin-bottom: 2rem;
-      }
+    /* =========================
+       HERO
+    ========================== */
+    .hero{
+      padding: 54px 0 20px;
+    }
+    .hero-card{
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(214,69,122,0.08), rgba(255,255,255,0.00));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-inner{
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: center;
+    }
+    @media (max-width: 900px){
+      .hero-inner{ grid-template-columns: 1fr; }
+    }
 
-      /* Grid Layouts */
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-      }
+    .kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 750;
+      color: var(--accent-2);
+      font-size: 13px;
+      letter-spacing: 0.2px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(214,69,122,0.12);
+      border: 1px solid rgba(214,69,122,0.22);
+      width: fit-content;
+    }
+    h1{
+      margin: 12px 0 10px;
+      font-size: clamp(32px, 4.2vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.6px;
+    }
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 52ch;
+    }
+    .cta-row{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--accent-2);
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-weight: 750;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 180ms ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(36,22,15,0.12);
+    }
+    .btn-primary{
+      background: var(--accent);
+      color: white;
+      border-color: rgba(214,69,122,0.55);
+    }
 
-      .card {
-        background: var(--accent-color);
-        padding: 2rem;
-        border-radius: 8px;
-        transition: transform 0.3s;
-      }
+    .quick-facts{
+      background: rgba(255,255,255,0.75);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .fact{
+      padding: 12px 10px;
+      border-radius: 14px;
+      border: 1px dashed rgba(59,33,23,0.18);
+      margin-bottom: 10px;
+    }
+    .fact:last-child{ margin-bottom: 0; }
+    .fact-title{
+      font-weight: 800;
+      color: var(--accent-2);
+      font-size: 13px;
+      letter-spacing: 0.2px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .fact p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-      .card:hover {
-        transform: translateY(-5px);
-      }
+    /* =========================
+       CARDS + TITLES
+    ========================== */
+    .section-title{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .section-title h2{
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+      color: var(--accent-2);
+    }
+    .section-title .hint{
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
 
-      /* Special Styling for Internship Reflection */
-      .reflection-box {
-        background: #e9f0ee;
-        padding: 2rem;
-        border-left: 5px solid var(--primary-color);
-        font-style: italic;
-      }
+    .cards{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 980px){
+      .cards{ grid-template-columns: 1fr; }
+    }
+    .card{
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 20px rgba(36,22,15,0.06);
+      transition: 180ms ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+    }
+    .tag{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(59,33,23,0.08);
+      color: var(--accent-2);
+      font-weight: 750;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .card h3{
+      margin: 6px 0 8px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .card p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .card a{
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .card a:hover{ text-decoration: underline; }
 
-      /* Footer */
-      footer {
-        background: var(--secondary-color);
-        color: white;
-        text-align: center;
-        padding: 2rem;
-      }
+    /* =========================
+       LISTS
+    ========================== */
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .bullets li{ margin: 8px 0; }
 
-      .btn {
-        background: var(--primary-color);
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <div class="logo">CD</div>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#career">Field Hockey</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#internship">Internship</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    /* =========================
+       FOOTER
+    ========================== */
+    footer{
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
 
-    <header>
-      <h1>Caroline DiGiovanni</h1>
-      <p>
-        Babson College Senior | Business Analytics | NCAA Field Hockey Athlete
-      </p>
-    </header>
+    /* Little accent divider */
+    .divider{
+      height: 1px;
+      background: linear-gradient(90deg, rgba(214,69,122,0.0), rgba(214,69,122,0.45), rgba(214,69,122,0.0));
+      margin: 26px 0 0;
+    }
+  </style>
+</head>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a highly motivated student at <strong>Babson College</strong>,
-        concentrating in Business Analytics. With a background as a collegiate
-        athlete, I combine competitive drive with technical skills to solve
-        complex business problems through data-driven insights.
-      </p>
-      <div class="grid">
+<body>
+  <!-- =========================
+       NAV
+  ========================== -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Back to top">
+        <span class="brand-dot"></span>
+        Caroline DiGiovanni
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#internship">Internship</a>
+        <a href="#interests">Interests</a>
+        <a href="#hockey">Field Hockey</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <main id="top" class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-inner">
+          <div>
+            <h1>Caroline DiGiovanni</h1>
+            <p class="subtitle">
+              Senior at Babson College • Business Analytics Concentration • Turning data into stories, decisions, and results.
+            </p>
+
+            <div class="cta-row">
+              <!-- Replace LINKEDIN URL below -->
+              <a class="btn btn-primary" href="https://www.linkedin.com/in/YOUR-LINKEDIN-HERE" target="_blank" rel="noopener">
+                LinkedIn ↗
+              </a>
+              <a class="btn" href="#projects">View Projects</a>
+              <a class="btn" href="#contact">Contact</a>
+            </div>
+
+            <div class="divider"></div>
+          </div>
+
+          <aside class="quick-facts" aria-label="Quick facts">
+            <div class="fact">
+              <div class="fact-title">Focus</div>
+              <p>Marketing + business analytics, research, segmentation, and decision-making.</p>
+            </div>
+            <div class="fact">
+              <div class="fact-title">Strengths</div>
+              <p>Curiosity, structure, teamwork, and getting things done.</p>
+            </div>
+            <div class="fact">
+              <div class="fact-title">Currently</div>
+              <p>Building an online resume + showcasing projects for Website Technology.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>About</h2>
+          <p class="hint">Short intro (edit this text anytime)</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <span class="tag">Who I am</span>
+            <h3>Babson senior + business analytics</h3>
+            <p>
+              I’m a senior at Babson College concentrating in Business Analytics. I love combining creativity with
+              structured problem-solving — whether it’s marketing insights, project work, or building something new online.
+            </p>
+            <ul class="bullets">
+              <li>Interested in analytics, marketing, and strategy</li>
+              <li>Enjoy projects that connect data to real decisions</li>
+              <li>Team-first mindset from years of field hockey</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="tag">What I’m looking for</span>
+            <h3>Opportunities + growth</h3>
+            <p>
+              I’m excited about roles where I can learn quickly, contribute meaningfully, and keep building my toolkit —
+              especially in analytics and customer-focused strategy.
+            </p>
+            <ul class="bullets">
+              <li>Data storytelling + dashboards</li>
+              <li>Marketing analytics + research</li>
+              <li>Strategy + problem solving</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p class="hint">Swap these out with your real projects</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="tag">Analytics</span>
+            <h3>Project Title #1</h3>
+            <p>
+              A short description of what you did, the tools you used, and the result. (Example: segmentation, insights,
+              recommendations, visuals.)
+            </p>
+            <a href="#" aria-label="Project 1 link">See details →</a>
+          </article>
+
+          <article class="card">
+            <span class="tag">Marketing</span>
+            <h3>Project Title #2</h3>
+            <p>
+              Include a measurable outcome if possible: improved efficiency, clearer targeting, stronger story, cleaner data, etc.
+            </p>
+            <a href="#" aria-label="Project 2 link">See details →</a>
+          </article>
+
+          <article class="card">
+            <span class="tag">Web</span>
+            <h3>Project Title #3</h3>
+            <p>
+              Mention what made it unique: design choices, user experience, responsiveness, accessibility, or cool features.
+            </p>
+            <a href="#" aria-label="Project 3 link">See details →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNSHIP -->
+    <section id="internship" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Past Internship Reflection</h2>
+          <p class="hint">Keep this authentic + specific</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <span class="tag">Reflection</span>
+            <h3>What I learned</h3>
+            <p>
+              During my internship, I learned how important it is to stay organized, ask great questions, and turn messy information
+              into something useful. I grew most when I took ownership of tasks and communicated clearly.
+            </p>
+            <ul class="bullets">
+              <li>Improved my confidence working with real business data</li>
+              <li>Learned how to document processes so work is repeatable</li>
+              <li>Got better at writing insights people actually use</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="tag">Skills</span>
+            <h3>Tools + strengths I used</h3>
+            <p>
+              Add the specific tools you used (Excel, Sheets, SQL, Tableau, Python, Canva, etc.) and what you actually did with them.
+            </p>
+            <ul class="bullets">
+              <li>Data cleanup + organizing info</li>
+              <li>Research + building structured lists</li>
+              <li>Communication + teamwork</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section id="interests" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Interests</h2>
+          <p class="hint">A little personality goes a long way</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <span class="tag">🌊 Beach</span>
+            <h3>Coastal reset</h3>
+            <p>Anything ocean-related: walking, recharging, and that “fresh air fixes everything” feeling.</p>
+          </div>
+
+          <div class="card">
+            <span class="tag">🏋️ Gym</span>
+            <h3>Training mindset</h3>
+            <p>I love staying active and challenging myself — it keeps me focused and energized.</p>
+          </div>
+
+          <div class="card">
+            <span class="tag">🧩 Puzzles</span>
+            <h3>Problem solving</h3>
+            <p>Patterns, logic, and the satisfaction of finishing something difficult (same reason I like analytics).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIELD HOCKEY -->
+    <section id="hockey" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Field Hockey</h2>
+          <p class="hint">Leadership + teamwork section</p>
+        </div>
+
         <div class="card">
-          <h3>Interests</h3>
-          <ul>
-            <li>Data Visualization & Storytelling</li>
-            <li>Fitness (Barry's & Hot Yoga)</li>
-            <li>Fashion Technology</li>
-            <li>Global Travel & Culture</li>
+          <span class="tag">Athletics</span>
+          <h3>What field hockey taught me</h3>
+          <p>
+            Field hockey shaped how I work: staying calm under pressure, being coachable, pushing for improvement, and showing up
+            for the team. I bring that same mindset into group projects and professional work.
+          </p>
+          <ul class="bullets">
+            <li>Discipline + time management</li>
+            <li>Communication + collaboration</li>
+            <li>Competitive drive + resilience</li>
           </ul>
         </div>
-        <div class="card">
-          <h3>Skills</h3>
-          <ul>
-            <li>Marketing Analytics</li>
-            <li>Competitive Research</li>
-            <li>Web Technology (HTML/CSS)</li>
-            <li>Strategic Communication</li>
-          </ul>
-        </div>
       </div>
     </section>
 
-    <section id="career" style="background-color: #fff">
-      <h2>Field Hockey Career</h2>
-      <p>
-        Competing as a Babson Field Hockey athlete has been the cornerstone of
-        my college experience. It taught me the discipline required to manage a
-        rigorous academic schedule while competing at a national level.
-      </p>
-      <div class="reflection-box">
-        "The transition from the field to the boardroom is fueled by the same
-        grit, teamwork, and strategic thinking developed through years of elite
-        competition."
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Sports Marketing Analysis</h3>
-          <p>
-            An in-depth study on Major League Soccer's growth strategies and fan
-            engagement metrics.
-          </p>
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p class="hint">Replace with your real email</p>
         </div>
-        <div class="card">
-          <h3>Web Technology Portfolio</h3>
-          <p>
-            This website! Developed to showcase my ability to blend technical
-            coding with personal branding.
-          </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <span class="tag">Let’s connect</span>
+            <h3>Reach out</h3>
+            <p>
+              Email: <a href="mailto:caroline@example.com">caroline@example.com</a><br/>
+              LinkedIn: <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HERE" target="_blank" rel="noopener">View profile ↗</a>
+            </p>
+            <p style="margin-top:12px; color: var(--muted); font-size: 13px;">
+              Tip: If your class requires a contact form, tell me and I’ll add a simple one (without a backend).
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="tag">Quick customization</span>
+            <h3>Make it yours</h3>
+            <ul class="bullets">
+              <li>Swap project titles + descriptions</li>
+              <li>Add your resume PDF link</li>
+              <li>Add photos (headshot, hockey, beach)</li>
+              <li>Update your LinkedIn + email</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </section>
-
-    <section id="internship">
-      <h2>Internship Reflection</h2>
-      <h3>Marketing Intern | Vantage Partners</h3>
-      <p>
-        During my summer at Vantage Partners, I dived deep into contact research
-        and competitive analysis. This experience solidified my interest in
-        consulting and analytics, as I learned how to turn raw market data into
-        actionable insights for client strategy.
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>Connect With Me</h2>
-      <p>
-        I am currently exploring opportunities in Business Analytics and
-        Interest Rate Sales.
-      </p>
-      <a
-        href="https://www.linkedin.com/in/carolinedigiovanni"
-        class="btn"
-        target="_blank"
-        >View My LinkedIn</a
-      >
-      <a
-        href="mailto:your-email@babson.edu"
-        class="btn"
-        style="background: #333"
-        >Email Me</a
-      >
     </section>
 
     <footer>
-      <p>&copy; 2026 Caroline DiGiovanni | Built for Web Technology Class</p>
+      <div class="container">
+        © <span id="year"></span> Caroline DiGiovanni • Built for Website Technology • White / Raspberry / Dark Brown theme
+      </div>
     </footer>
-  </body>
+  </main>
+
+  <script>
+    // Set footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Highlight active nav link as you scroll
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("#navLinks a");
+
+    function setActiveLink(){
+      let current = "";
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.scrollY >= top) current = sec.getAttribute("id");
+      });
+
+      navLinks.forEach(a => {
+        a.classList.remove("active");
+        if (a.getAttribute("href") === "#" + current) a.classList.add("active");
+      });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    setActiveLink();
+  </script>
+</body>
 </html>
