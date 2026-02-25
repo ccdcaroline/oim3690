@@ -4,3 +4,12 @@ body {font-family: cursive;
 li {font-size: 18px;}
 h2 {color:rgb(170, 3, 3); font-size: 38px;}
 h3 {color:rgb(170, 3, 3)}
+
+p {.purple 
+    {color: purple}
+}
+
+* { 
+    margin: 0;
+    border: 2px solid darkmagenta;
+}
