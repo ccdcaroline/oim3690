@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Profile Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 1rem;
+            background: #eef2f5;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+        .card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .card h2 {
+            margin: 0.5rem 0;
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 480px) {
+            body { padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Team</h1>
+    <div class="cards-container">
+        <div class="card">
+            <img src="https://via.placeholder.com/100" alt="Member 1">
+            <h2>Alice</h2>
+            <p>Lead Designer who loves art and coffee.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/100" alt="Member 2">
+            <h2>Bob</h2>
+            <p>Developer, guitarist, and mountain biker.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/100" alt="Member 3">
+            <h2>Carol</h2>
+            <p>Marketing guru and avid traveler.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/100" alt="Member 4">
+            <h2>Dan</h2>
+            <p>Product manager with a passion for chess.</p>
+        </div>
+    </div>
+</body>
+</html>
