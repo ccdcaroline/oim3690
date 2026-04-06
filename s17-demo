@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        const firstName = "Michael";
+        const lastName = "Scott";
+        let name = `${firstName} ${lastName}`;
+
+        name = "Dwight Schrute";
+        const message = `Hello, ${name}! Welcome to JavaScript!`;
+        console.log(message);
+
+        //   Numbers: 
+        const age = 45;
+        console.log(`In 5 years, ${name} will be ${age + 5} years old.`); 
+
+        //   Boolean: 
+        let isEmployed = true;
+        console.log('Is ${name} employed? ${isEmployed}');
+
+        if (isEmployed) {
+            console.log(`${name} is working at Dunder Mifflin.`);
+        } else {
+            console.log(`${name} is currently unemployed.`);
+        }
+
+        //  Undefined and Null:
+        let officeLocation; // This variable is undefined
+        console.log(`Office location: ${officeLocation}`); 
+
+        let manager = null; // This variable is  null
+        console.log(`Manager of Dunder Mifflin is: ${manager}.`);
+    </script>
+</body>
+</html>

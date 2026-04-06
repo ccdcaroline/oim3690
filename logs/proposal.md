@@ -3,15 +3,18 @@
 **Client:** Chuck DiGiovanni (Dad)
 **Purpose:** Offer landscaping services to the Cape Cod community. 
 **Audience:** People on Cape Cod that need simple landscaping needs and upkeep. 
-**Key action:** Get Chuck's contact information to reach out. 
+**Key action:** Build rough draft of website.   
 
 **Pages/sections needed:**
-- [list them]
+- Home page, will give a quick overview of what Chuck offers.  
+- Services page, will list specific lanscaping services like lawn care, clean ups, etc. 
+- About page, will introduce Chuck and highlight his experience. 
+- Contact page, will make it easier for customers to reach out. 
 
-**Content status:** [What content do you have? What do you still need from the client?]
+**Content status:** I have contact information, but need to get a list of services and pricing that he wants to offer. 
 
-**Style preferences:** [Colors, fonts, vibe - based on what they told you]
+**Style preferences:** Green color scheme, simple and easy to use. Not too picky with the style, more concerned about the information. Overall, the vibe should feel local, reliable, and straightforward.
 
 **Inspiration sites:**
-- [Site 1] - what they liked about it
-- [Site 2] - what they liked about it
+- [https://www.joycelandscaping.com/] - Liked the color scheme, but would rather his to be simplier and less green. Did not like he cursive font, hard to read. Thought the website was overwhelming, did not really like. 
+- [https://muirbroslandscaping.com/#section-CBoViINHga] - Favorite section was the services, liked the box set up with simple description and picture. Really liked the simplicity of the website, but didn't like the house background picture. 
