@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Town Explorer</h1>
+
+    <label for="search">Search towns by name:</label>
+    <input id="search" type="text" placeholder="Type a town name" />
+    <p>Matches: <span id="match-count">0</span></p>
+    <p>Smallest town: <span id="smallest-town">N/A</span></p>
+    <p>Largest town: <span id="largest-town">N/A</span></p>
+
+    <ul id="town-list"></ul>
+
+    <script>
+        const searchInput = document.getElementById('search');
+        const matchCount = document.getElementById('match-count');
+        const smallestTown = document.getElementById('smallest-town');
+        const largestTown = document.getElementById('largest-town');
+        const townList = document.getElementById('town-list');
+
+        let towns = [];
+
+        function renderTowns(filteredTowns) {
+            townList.innerHTML = '';
+            matchCount.textContent = filteredTowns.length;
+
+            if (filteredTowns.length === 0) {
+                smallestTown.textContent = 'N/A';
+                largestTown.textContent = 'N/A';
+                return;
+            }
+
+            let minTown = filteredTowns[0];
+            let maxTown = filteredTowns[0];
+
+            filteredTowns.forEach((town) => {
+                if (town.population < minTown.population) minTown = town;
+                if (town.population > maxTown.population) maxTown = town;
+            });
+
+            smallestTown.textContent = `${minTown.name} (${minTown.population})`;
+            largestTown.textContent = `${maxTown.name} (${maxTown.population})`;
+
+            filteredTowns.slice(0, 10).forEach((town) => {
+                const li = document.createElement('li');
+                li.textContent = `${town.name}, United States, population ${town.population}`;
+                townList.appendChild(li);
+            });
+        }
+
+        function filterTowns() {
+            const query = searchInput.value.trim().toLowerCase();
+            const filtered = towns.filter((town) => town.name.toLowerCase().includes(query));
+            renderTowns(filtered);
+        }
+
+        async function loadTowns() {
+            townList.innerHTML = '<li>Loading towns...</li>';
+
+            const response = await fetch('https://oim.108122.xyz/mass', {
+                headers: {
+                    'X-Token': 'carolinecaroline'
+                }
+            });
+            const data = await response.json();
+            towns = data.data || [];
+
+            renderTowns(towns);
+        }
+
+        searchInput.addEventListener('input', filterTowns);
+        loadTowns();
+    </script>
+</body>
+</html>

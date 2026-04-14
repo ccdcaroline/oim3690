@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Loop Challenges</h1>
+    <section>
+        <h2>Numbers</h2>
+        <ul id="number-list"></ul>
+    </section>
+    <section>
+        <p>Total: <span id="total"></span></p>
+        <p>Largest number: <span id="max-number"></span></p>
+        <p>Positive count: <span id="positive-count"></span></p>
+        <p>Even numbers: <span id="even-numbers"></span></p>
+    </section>
+
+    <script>
+        const numbers = [4, -8, 15, -16, 23, 42, -3];
+
+        const listElement = document.getElementById('number-list');
+        const totalElement = document.getElementById('total');
+        const maxElement = document.getElementById('max-number');
+        const positiveCountElement = document.getElementById('positive-count');
+        const evenNumbersElement = document.getElementById('even-numbers');
+
+        let total = 0;
+        let maxNumber = numbers[0];
+        let positiveCount = 0;
+        const evenNumbers = [];
+
+        for (let i = 0; i < numbers.length; i += 1) {
+            const value = numbers[i];
+
+            const item = document.createElement('li');
+            item.textContent = value;
+            listElement.appendChild(item);
+
+            total += value;
+
+            if (value > maxNumber) {
+                maxNumber = value;
+            }
+
+            if (value > 0) {
+                positiveCount += 1;
+            }
+
+            if (value % 2 === 0) {
+                evenNumbers.push(value);
+            }
+        }
+
+        totalElement.textContent = total;
+        maxElement.textContent = maxNumber;
+        positiveCountElement.textContent = positiveCount;
+        evenNumbersElement.textContent = evenNumbers.join(', ');
+    </script>
+</body>
+</html>

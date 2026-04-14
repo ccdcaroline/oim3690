@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Get Random Word</button>
+    <div id="result"></div>
+
+    <script>
+        const btn = document.querySelector('button');
+        const result = document.querySelector('#result');
+
+        async function getRandomWord() {
+            result.innerHTML = "loading...";
+            const response = await fetch('https://oim.108122.xyz/words/random');
+            const word = await response.json();
+            console.log(word);
+            result.innerHTML = `<p>${word}</p>`;
+        }
+
+        btn.addEventListener('click', () => {
+            getRandomWord();
+        });
+    </script>
+</body>
+</html>

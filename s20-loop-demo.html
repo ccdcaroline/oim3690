@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click</button>
+    <p id="result"></p>
+
+    <script>
+        const btn = document.querySelector('button');
+        const result = document.querySelector('#result');
+
+        function doStuff() {
+           for (let i = 99; i >= 0; i--) {
+              if (i % 2 == 0) {
+                result.innerHTML += '${i} is even<br>';
+              } else {
+                result.innerHTML += '${i} is odd<br>';
+              }
+              total += i;
+           }
+           result.innerHTML += '<br>Total: ${total}';
+        }
+
+        function doStuff() { 
+            const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
+            for (let i = 0; i < colors.length; i++) {
+                result.innerHTML += colors[i] + '<br>';
+            }
+        }
+        btn.addEventListener('click', doStuff);
+    </script>
+</body>
+</html>
